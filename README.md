@@ -59,7 +59,7 @@ Run the following commands to install required dependencies:
 ### ** 3️⃣ Build the package**
     colcon build --packages-select px4_msgs
 ### **4️⃣ Source the Workspace**
-        source install/setup.bash
+    source install/setup.bash
 
 ---
 ## ✅ Notes
@@ -71,14 +71,14 @@ Run the following commands to install required dependencies:
 
 Once all prerequisites are installed, you can launch different components of the project using the following commands:
 
-1️⃣ Launch the Controller
+### **1️⃣ Launch the Controller **
     ros2 launch controller controller_launch.py 
 
 
-2️⃣ Launch the Simulation
+### **2️⃣ Launch the Simulation **
     ros2 launch controller simulation_gaz.py 
 
-3️⃣ Bridge Data and View in RViz2
+### **3️⃣ Bridge Data and View in RViz2**
     ros2 launch controller data_bridge.py
 
 
