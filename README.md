@@ -81,17 +81,19 @@ Once all prerequisites are installed, you can launch different components of the
 
 1️⃣ Launch the Controller
 
-Run this command to start the controller: ros2 launch controller controller_launch.py 
+Run this command to start the controller: 
+    ros2 launch controller controller_launch.py 
 
 
 2️⃣ Launch the Simulation
 
-To start the simulation environment: ros2 launch controller simulation_gaz.py ##This one for launching a simulation
-
+To start the simulation environment: 
+    ros2 launch controller simulation_gaz.py 
 
 3️⃣ Bridge Data and View in RViz2
 
-For data bridging and visualization in RViz2: ros2 launch controller data_bridge.py ##This one is for bridging data and viewing data in rviz2 
+For data bridging and visualization in RViz2: 
+    ros2 launch controller data_bridge.py
 
 
 
