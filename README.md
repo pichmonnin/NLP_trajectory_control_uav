@@ -8,7 +8,6 @@
   ⚠ **Note:** Setup Tool must be **version 65.5.1** to prevent build errors with `px4_msgs`.
 - **Micro XRCE-DDS Agent**
 - **PX4 Autopilot**
-- **Realsense-Viewer & Realsense-Wrapper**
 - **Gazebo Igition**
 
 ---
@@ -33,8 +32,6 @@ Run the following commands to install required dependencies:
 ---
 
 ### **2️⃣ Install Micro XRCE-DDS Agent**
-
-Run the following commands:
     git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
     mkdir build
     cd build
@@ -45,17 +42,13 @@ Run the following commands:
 ---
 
 ### **3️⃣ Install PX4 Autopilot**
-
-Run the following commands to install PX4:
     git clone https://github.com/PX4/px4_msgs.git -b release/1.14
     bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
     Sudo reboot  
 
 **Note:** You have to reboot your PC for this to take effect
 ---
-
 ## 🚀 Building Packages for PX4
-
     git clone https://github.com/PX4/px4_msgs.git -b release/1.14
 ⚠ **Note:** You must clone `px4_msgs` into the `src` directory to avoid build errors.
 
@@ -65,7 +58,6 @@ Run the following commands to install PX4:
     pip3 install setuptools==58.2.0 
 ### ** 3️⃣ Build the package**
     colcon build --packages-select px4_msgs
-
 ### **4️⃣ Source the Workspace**
         source install/setup.bash
 
@@ -80,19 +72,13 @@ Run the following commands to install PX4:
 Once all prerequisites are installed, you can launch different components of the project using the following commands:
 
 1️⃣ Launch the Controller
-
-Run this command to start the controller: 
     ros2 launch controller controller_launch.py 
 
 
 2️⃣ Launch the Simulation
-
-To start the simulation environment: 
     ros2 launch controller simulation_gaz.py 
 
 3️⃣ Bridge Data and View in RViz2
-
-For data bridging and visualization in RViz2: 
     ros2 launch controller data_bridge.py
 
 
