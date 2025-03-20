@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250308-0414-Experimental"
+	Name="pich-ROG-Strix-G713IM-G713IM"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="pich-ROG-Strix-G713IM-G713IM"
+	OSRelease="6.8.0-52-generic"
+	OSVersion="#53~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 15 19:18:46 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="23"
+	ModelID="96"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="15404"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2501.57"
+	>
+	<Testing>
+		<StartDateTime>Mar 08 16:20 +07</StartDateTime>
+		<StartTestTime>1741425609</StartTestTime>
+		<TestList/>
+		<EndDateTime>Mar 08 16:20 +07</EndDateTime>
+		<EndTestTime>1741425609</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

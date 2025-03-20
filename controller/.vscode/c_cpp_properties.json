@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${vcpkgRoot}/x64-linux/include",
+                "/opt/ros/humble/include/**",
+                "/opt/ros/humble/include/sensor_msgs/**",
+                "/home/pich/project_ws/install/px4_msgs/include/**",
+                "/usr/include/eigen3/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
