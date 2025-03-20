@@ -9,12 +9,13 @@
 - **Micro XRCE-DDS Agent**
 - **PX4 Autopilot**
 - **Gazebo Igition**
+- **Joystick Driver**
 
 ---
+    
+
 
 ## 📦 Dependencies for ROS 2 Humble
-
-Run the following commands to install required dependencies:
     pip3 install --user -U empy pyros-genmsg setuptools
     pip3 install kconfiglib
     pip install --user jsonschema
@@ -60,6 +61,12 @@ Run the following commands to install required dependencies:
     colcon build --packages-select px4_msgs
 ### **4️⃣ Source the Workspace**
     source install/setup.bash
+
+---
+## 🎮 **Joystick Driver Installation **
+    git clone https://github.com/ros-drivers/joystick_drivers.git
+
+
 
 ---
 ## ✅ Notes
