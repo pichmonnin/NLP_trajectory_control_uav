@@ -43,14 +43,14 @@
 ---
 
 ### **3️⃣ Install PX4 Autopilot**
-    git clone https://github.com/PX4/px4_msgs.git -b release/1.14
+    git clone https://github.com/PX4/px4_msgs.git -b release/1.15
     bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
     Sudo reboot  
 
 **Note:** You have to reboot your PC for this to take effect
 ---
 ## 🚀 Building Packages for PX4
-    git clone https://github.com/PX4/px4_msgs.git -b release/1.14
+    git clone https://github.com/PX4/px4_msgs.git -b release/1.15
 ⚠ **Note:** You must clone `px4_msgs` into the `src` directory to avoid build errors.
 
 
