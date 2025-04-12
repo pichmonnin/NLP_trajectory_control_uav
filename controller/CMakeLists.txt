@@ -11,16 +11,24 @@ find_package(rclcpp REQUIRED)
 find_package(px4_msgs REQUIRED PATHS /home/pich/uav_ws/install/px4_msgs)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 include_directories(/usr/include/eigen3)
 
 
 add_executable(ekf_filter src/ekf_filter.cpp)
 add_executable(Joy_stick_control src/Joy_stick_control.cpp)
+add_executable(D_star src/D_star.cpp)
+add_executable(Trajectory_controll src/Trajectory_controll.cpp)
 ament_target_dependencies(ekf_filter rclcpp sensor_msgs px4_msgs geometry_msgs)
 ament_target_dependencies(Joy_stick_control rclcpp sensor_msgs px4_msgs geometry_msgs)
+ament_target_dependencies(D_star rclcpp px4_msgs geometry_msgs visualization_msgs nav_msgs std_srvs)
+ament_target_dependencies(Trajectory_controll rclcpp px4_msgs geometry_msgs visualization_msgs nav_msgs std_srvs)
 
-install(TARGETS ekf_filter Joy_stick_control
+
+install(TARGETS ekf_filter Joy_stick_control D_star Trajectory_controll
           DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch/
   DESTINATION share/${PROJECT_NAME})

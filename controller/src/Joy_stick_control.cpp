@@ -24,7 +24,7 @@ public:
         
         // QoS profile for PX4 communication
         rclcpp::QoS qos_profile(rclcpp::QoS(10).best_effort().transient_local());
-
+        
         // Publishers
         pos_pub_ = this->create_publisher<px4_msgs::msg::TrajectorySetpoint>("/fmu/in/trajectory_setpoint", qos_profile);
         cmd_pub_ = this->create_publisher<px4_msgs::msg::VehicleCommand>("/fmu/in/vehicle_command", qos_profile);
