@@ -12,7 +12,7 @@ import time
 import math
 import numpy as np
 
-class FlyUpNode(Node):
+class DroneControl(Node):
     def __init__(self):
         super().__init__('fly_up_node')
         qos_profile = QoSProfile(
@@ -479,7 +479,7 @@ class FlyUpNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = FlyUpNode()
+    node = DroneControl()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
