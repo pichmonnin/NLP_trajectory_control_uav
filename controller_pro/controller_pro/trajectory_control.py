@@ -2,9 +2,12 @@ import rclpy
 import numpy as np
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
-from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleLocalPosition, VehicleStatus
+from visualization_msgs.msg import Marker
+from std_msgs.msg import ColorRGBA
+from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleLocalPosition, VehicleStatus # type: ignore
 from std_srvs.srv import Trigger, SetBool
-from geometry_msgs.msg import Point
+from geometry_msgs.msg import Point , PoseStamped
+from nav_msgs.msg import Path
 from gekko import GEKKO
 
 class OffboardControl(Node):
@@ -20,6 +23,7 @@ class OffboardControl(Node):
         )
 
         # Create publishers
+        self.path_publisher = self.create_publisher(Path ,"/drone_path_plan" , qos_profile)
         self.offboard_control_mode_publisher = self.create_publisher(
             OffboardControlMode, '/fmu/in/offboard_control_mode', qos_profile)
         self.trajectory_setpoint_publisher = self.create_publisher(
@@ -135,7 +139,21 @@ class OffboardControl(Node):
         response.success = True
         response.message = "Landing triggered"
         return response
-
+    def publish_path(self):
+        if not self.waypoints:
+            return
+        path_msg = Path()
+        path_msg.header.frame_id = "map"
+        path_msg.header.stamp = self.get_clock().now().to_msg()
+        for wp in self.waypoints:
+            pose_stamped =PoseStamped()
+            pose_stamped.header = path_msg.header
+            pose_stamped.pose.position.x = wp[0]
+            pose_stamped.pose.position.y =wp[1]
+            pose_stamped.pose.position.z = -wp[2]
+            path_msg.poses.append(pose_stamped)
+        self.path_publisher.publish(path_msg)
+            
     def trajectory_generator(self):        
         if self.state == "READY" and self.waypoints is None:
             # Define the initial conditions
@@ -229,7 +247,7 @@ class OffboardControl(Node):
                     self.waypoints += [(x[j], y[j], z[j]) for j in range(len(x))]
             
             self.get_logger().info(f"Number of Waypoints: {len(self.waypoints)}")
-            
+            self.publish_path()
             # Generate velocity setpoints
             dt = tf_scheduled / len(self.waypoints)
             self.waypoint_velocities = []

@@ -24,7 +24,10 @@ setup(
     entry_points={
         'console_scripts': [
             "trajectory_control = controller_pro.trajectory_control:main",
-            "data_bridge = controller_pro.data_bridge:main"
+            "data_bridge = controller_pro.data_bridge:main",
+            "visual_rviz2 = controller_pro.visual_rviz2:main",
+            "trajectory_mavros =controller_pro.trajectory_mavros:main",
+            "test1 =controller_pro.test1:main",
         ],
     },
 )

@@ -13,6 +13,12 @@
   <depend>geeko</depend>
   <depend>std_srvs</depend>
   <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>mavros_msgs</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>tf2_ros</depend>
+  <depend>trajectory_msgs</depend>
 
 
   <test_depend>ament_copyright</test_depend>
