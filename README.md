@@ -1,4 +1,4 @@
-# UAV Obstacle Avoidance 🚀
+# Implementation of Reinforcement learning algorithms for local PathPlanning and NLP for Global Path Planning 🚀
 
 ## 📌 Prerequisites
 
@@ -6,10 +6,10 @@
 
 - **ROS 2 Humble (Ubuntu 22.04)**\
   ⚠ **Note:** Setup Tool must be **version 65.5.1** to prevent build errors with `px4_msgs`.
-- **Micro XRCE-DDS Agent**
+- **Mavros for Humble**
 - **PX4 Autopilot**
 - **Gazebo Igition**
-- **Joystick Driver**
+
 
 ---
     
@@ -27,26 +27,24 @@
 
 ### **1️⃣ Install Gazebo**
 
-📌 Follow the instructions from the official source:\
+📌 Follow the instructions from the official source:
 🔗 [Gazebo Installation Guide](https://gazebosim.org/docs/fortress/install_ubuntu_src/)
 
 ---
 
-### **2️⃣ Install Micro XRCE-DDS Agent**
-    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-    mkdir build
-    cd build
-    cmake ..
-    make
-    sudo make install 
-    sudo ldconfig /usr/local/lib/
+### **2️⃣ Install Mavros**
+    sudo apt-get install ros-humble-mavros ros-humble-mavros-extras
 ---
 
-### **3️⃣ Install PX4 Autopilot**
-    git clone https://github.com/PX4/px4_msgs.git -b release/1.15
+### **3️⃣ GeographicLib Dataset**
+    wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
+    chmod +x install_geographiclib_datasets.sh
+    sudo ./install_geographiclib_datasets.sh
+
+### **4️⃣ Install PX4 Autopilot**
+    git clone https://github.com/PX4/px4_msgs.git -b -recursive release/1.15
     bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
     Sudo reboot  
-
 **Note:** You have to reboot your PC for this to take effect
 ---
 ## 🚀 Building Packages for PX4
@@ -62,10 +60,6 @@
 ### **4️⃣ Source the Workspace**
     source install/setup.bash
 
----
-## 🎮 **Joystick Driver Installation **
-    git clone https://github.com/ros-drivers/joystick_drivers.git
-
 
 
 ---
@@ -78,15 +72,11 @@
 
 Once all prerequisites are installed, you can launch different components of the project using the following commands:
 
-### **1️⃣ Launch the Controller **
-    ros2 launch controller controller_launch.py 
+### **1️⃣ run the NLP Algorithm **
+    ros2 run controller_pro trajectory_mavros.py
+### **2️⃣ bridge PX4 with mavros **
+    ros2 launch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 
-
-### **2️⃣ Launch the Simulation **
-    ros2 launch controller simulation_gaz.py 
-
-### **3️⃣ Bridge Data and View in RViz2**
-    ros2 launch controller data_bridge.py
 
 
 
