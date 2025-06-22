@@ -1,4 +1,4 @@
-# Implementation of Reinforcement learning algorithms for local PathPlanning and NLP for Global Path Planning 🚀
+# Implementation NLP for Global Path Planning 🚀
 
 ## 📌 Prerequisites
 
