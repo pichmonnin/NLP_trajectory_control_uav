@@ -34,6 +34,9 @@
     Sudo reboot  
 **Note:** You have to reboot your PC for this to take effect
 
+**NOte:** When you execute ubuntu.sh there would be an error so what you have to do is to go to that directory and inside the requirement.txt file you have to change matplot 3.0.* to 3.0 instead. After that you need the bash ./PX4-Autopilot/Tools/setup/ubuntu.sh command again
+
+
 ### ** Step 4 : Install the ros2_bridge**
     sudo apt install ros-humble-ros-gzgarden
 ---

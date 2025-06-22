@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped , Transform , Twist , Vector3 , Quaternion 
@@ -28,17 +27,16 @@ class DroneControl(Node):
         self.mode_client = self.create_client(SetMode, "/mavros/set_mode")
         
         self.state_sub = self.create_subscription(State , "/mavros/state" ,self.state_cb , 10)
-        
+        self.local_pose_sub = self.create_subscription(PoseStamped , "/mavros/local_position/pose" , self.local_pose_cb ,qos_profile)
         self.local_pose = PoseStamped()
         self.local_pose_received = False
-        self.local_pose_sub = self.create_subscription(PoseStamped , "/mavros/local_position/pose" , self.local_pose_cb ,qos_profile)
+
         
         self.current_state =State()
         self.state_received = False
         
         self.quaternion = Quaternion()
         
-        #Initial variable for trajectory control
         
         self.dt = 0.05
         self.wait_time = int(5/self.dt)
@@ -49,7 +47,6 @@ class DroneControl(Node):
         self.x_goal , self.y_goal , self.z_goal =self.goal_points[self.goal_counter]
         self.navigation_timeout = 0
         self.max_navigation_time = int(20/self.dt)
-        
         #Waypoint navigation generations
         self.waypoints = []
         self.waypoints_counter = 0 
