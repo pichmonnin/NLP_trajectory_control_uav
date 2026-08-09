@@ -63,8 +63,8 @@ Here this is a video of how the NLP work:
 
 
 
-https://github.com/user-attachments/assets/218c4098-0b31-4529-bc8f-6ef58855fe10
-
+[https://github.com/user-attachments/assets/218c4098-0b31-4529-bc8f-6ef58855fe10
+](https://github.com/user-attachments/assets/dd15e198-5476-4159-b34d-d40caeb87e9c)
 
 
 
