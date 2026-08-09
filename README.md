@@ -58,7 +58,8 @@ This is how we can establish connection between the gazebo simulation and our ro
 ### **Step 4: bridge gazebo data with ROS2**
     ros2 launch controller_pro camera_bridge.py
 
-
+### Video of demonstration
+    Here this is a video of how the NLP work: 
 
 
 
